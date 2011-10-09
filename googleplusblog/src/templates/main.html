@@ -5,8 +5,8 @@ Home
 {% endblock %}
 
 {% block breadcrumbs %}
-<li><a href="/">Home</a></li>
-<li>Blog</li>
+  <a class="button" href="/">Home</a>
+  <a class="button" href="/blog/">Blog</a>
 {% endblock %}
 
 {% block body %}
@@ -14,3 +14,4 @@ Home
 		{% include 'activity_panel.html' %}
       {% endfor %}
 {% endblock %}
+

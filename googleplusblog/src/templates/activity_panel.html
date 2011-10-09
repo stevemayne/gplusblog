@@ -1,0 +1,57 @@
+      <div class="activity">
+      <div class="timestamp">{{ activity.published_dt|date }}</div>
+		<!-- <div class="title"><a href="/blog/activity/{{activity.id}}/">{{activity.title}}</a></div> -->
+		<div class="content">
+		{% if activity.object.actor %}
+	        {% if activity.annotation %}
+	        <div class="annotation">{{ activity.annotation }}</div>
+	        {% endif %}
+        <div class="original_post">
+        {% endif %}
+        
+        <p>{{ activity.object.content }}</p>
+        
+        {% if activity.object.attachments %}
+        <div class="attachments">
+        {% for attachment in activity.object.attachments %}
+        <div class="attachment">
+        {% ifequal attachment.objectType 'article' %}
+        	<h2><a href="{{ attachment.url }}">{{attachment.displayName }}</a></h2>
+            <p>{{ attachment.content }}</p>
+        {% else %}        
+	        {% if attachment.image %}
+	        {% if attachment.fullImage.small %}
+		        <img src="{{ attachment.fullImage.url }}" />
+	        {% else %}
+	        <a href="{{attachment.url}}"><img src="{{ attachment.image.url }}" /></a>
+	        {% endif %}
+	        {% endif %}
+        {% endifequal %}
+        </div>
+        {% endfor %}
+        </div>
+        {% endif %}
+        
+        {% if activity.object.actor %}
+        <div class="reference">
+        <img src="{{ activity.object.actor.image.url }}" width="25" height="25"/> <a href="{{ activity.object.url }}">Original post</a> by <a href="{{activity.object.actor.url }}">{{ activity.object.actor.displayName }}</a><br/>
+        </div>
+        </div>
+        {% endif %}
+        
+        </div>
+              
+      	<div class="replied">
+      	
+      	<a href="{{ activity.url }}">View on Google+</a><br/>
+      	{% if activity.object.replies.totalItems %}
+      	<a href="/blog/activity/{{activity.id}}/">{{ activity.object.replies.totalItems }} Comments</a><br/>
+      	{% endif %}
+      	
+      	</div>
+      	
+      	<div class="scores">
+      	{% if activity.object.plusoners.totalItems %}{{ activity.object.plusoners.totalItems }} +1's<br/>{% endif %}
+      	{% if activity.object.resharers.totalItems %}{{activity.object.resharers.totalItems }} Re-shares{% endif %}</a>
+      	</div>
+      </div>

@@ -1,0 +1,28 @@
+html, body { font-family: sans-serif, helvetica, arial; }
+body { font-size: 0.9em; padding: 0 0 0 0; margin: 0 0 0 0; }
+
+#header { position: absolute; padding: 3px; height: 5em; width: 100%; top: 0px; text-align: center; }
+#content { margin: 10px; padding-top: 6em; }
+h1 { font-size: 1.5em; margin-bottom: -0.2em; }
+h3 { font-size: 0.8em; padding-top: -0.2em; }
+h1 a { text-decoration: none; color: black; }
+
+.breadcrumbs { position: absolute; top: 4.2em; width: 100%; font-family: verdana, arial; background-color: #DDD; padding: 3 3 3 10; }
+.breadcrumbs li { display: inline; margin-right: 10px; list-style-type: square; }
+
+.activity { position: relative; border-bottom: 1px solid black; padding-bottom: 20px; margin-top: 20px; min-height: 10em; }
+.activity .timestamp { font-weight: bold; position: absolute; top: 3px; }
+.activity .replied { position: absolute; top: 2em;}
+.activity .scores { position: absolute; top: 6em; color: #888; height: 20em; }
+.activity .content { margin-left: 175px; }
+.activity .title a { margin-left: 175px; font-size: 1.3em; text-decoration: none; font-weight: bold; }
+.activity .content h2 { font-size: 1em; }
+.activity .attachments { padding-left: 10px; background-color: #DDD; padding-top: 10px; padding-bottom: 10px; width: 80%; }
+.activity .reference { margin-top: 20px; font-size: 0.8em;}
+.activity .original_post { border-left: 1px solid #BBB; padding-left: 10px; }
+
+#comments .commentblock { position: relative; padding-top: 2em; left: 175px; width: 70%; }
+#comments .commentblock img { float: left; padding-right: 20px; }
+#comments .timestamp { color: #888; font-size: 0.8em; }
+#comments .actor { float: left; padding-right: 1em; }
+#comments .comment { margin-top: 1em; margin-left: 70px; background-color: #DDD; padding: 1em 1em 1em 1em; width: 80%; }

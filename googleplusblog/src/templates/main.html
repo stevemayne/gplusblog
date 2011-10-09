@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block breadcrumbs %}
+<li><a href="/">Home</a></li>
+<li>Blog</li>
+{% endblock %}
+
+{% block body %}
+      {% for activity in activities %}
+		{% include 'activity_panel.html' %}
+      {% endfor %}
+{% endblock %}

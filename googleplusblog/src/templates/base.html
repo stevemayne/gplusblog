@@ -1,0 +1,23 @@
+<html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+  {% block stylesheets %}
+  {% endblock %}
+  <meta name="author" content="Steve Mayne" />
+  <meta name="description" content="Same Google+ Website" />
+  <script type="text/javascript" src="/static/js/cufon-yui.js"></script> 
+	<script type="text/javascript" src="/static/js/speccy_500.font.js"></script> 
+	<!-- <script type="text/javascript" src="/static/js/zx81_500.font.js"></script> --> 
+  <title>My Website - {% block title %}Blog{% endblock %}</title> 
+  </head>
+  <body>
+  <div id="header"><h1><a href="/">My website</a></h1><h3>...which uses the Google+ API...</h3></div>
+  <ul class="breadcrumbs">
+  {% block breadcrumbs %}{% endblock %}
+  </ul>
+  <div id="content">
+  {% block body %}{% endblock %}
+  </div> 
+  </body>
+</html>

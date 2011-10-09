@@ -46,10 +46,10 @@ def prepare_activity(a):
         timestamp = decode_timestamp(a['published'])
         delta = timestamp - datetime.datetime.now()
         a['published_today'] = delta.days == 0
-        a['published_dt'] = timestamp 
+        a['published_dt'] = timestamp
     if a.has_key('title'):
         a['short_title'] = shorten_title(a['title'])
-    
+
     if a.has_key('object'):
         for attach in a['object'].get('attachments', []):
             if attach.has_key('fullImage'):
@@ -61,7 +61,7 @@ def prepare_comment(c):
     if c.has_key('published'):
         timestamp = decode_timestamp(c['published'])
         delta = timestamp - datetime.datetime.now()
-        c['published_today'] = delta.days == 0 
+        c['published_today'] = delta.days == 0
         c['published_dt'] = timestamp
 
 def prepare_activities(activities):
@@ -73,8 +73,8 @@ def prepare_comments(comments):
         prepare_comment(c)
 
 class MainPage(webapp.RequestHandler):
-    '''The main blog page, including the most recent stories (activities)''' 
-    
+    '''The main blog page, including the most recent stories (activities)'''
+
     def get(self):
         activities_doc = serviceUnauth.activities().list(userId=settings.GPLUS_ID, collection='public').execute(httpUnauth)
         activities = activities_doc.get('items', [])
@@ -87,7 +87,7 @@ class MainPage(webapp.RequestHandler):
 
 class ActivityPage(webapp.RequestHandler):
     '''A page to display the specified activity, including the most recent comments'''
-    
+
     def get(self, activityId):
         activity = serviceUnauth.activities().get(activityId=activityId).execute(httpUnauth)
         prepare_activity(activity)
@@ -109,7 +109,7 @@ class SplashPage(webapp.RequestHandler):
 
 application = webapp.WSGIApplication(
                                      [(r'/', SplashPage),
-                                      (r'/blog/', MainPage), 
+                                      (r'/blog/', MainPage),
                                       (r'/blog/activity/(.*)/', ActivityPage)],
                                      debug=True)
 
@@ -118,3 +118,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

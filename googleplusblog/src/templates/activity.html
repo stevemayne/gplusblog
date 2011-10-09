@@ -1,28 +1,31 @@
 {% extends 'base.html' %}
 
 {% block title %}
-{{activity.title}}
+  {{activity.title}}
 {% endblock %}
 
 {% block breadcrumbs %}
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li>{{ activity.short_title }}</li>
+    <a class="button" href="/">Home</a>
+    <a class="button" href="/blog/">Blog</a>
 {% endblock %}
 
 {% block body %}
-
 {% include 'activity_panel.html' %}
 
-    <div id="comments">
-    {% for comment in comments %}
-    <div class="commentblock">
-    <img src="{{comment.actor.image.url}}" width="50" height="50"/>
-    <div class="actor"><a href="{{comment.actor.url}}">{{ comment.actor.displayName }}</a></div>
-    <div class="timestamp">{% if comment.published_today %}{{ comment.published_dt|date:"H:i" }}{% else %}{{ comment.published_dt|date }}{% endif %}</div>
-    <div class="comment">{{comment.object.content}}</div>
-    </div>
-    {% endfor %}
-    </div>
-
+{% if comments %}
+<h3>Comments</h3>
+<ul id="comments">
+  {% for comment in comments %}
+    <li>
+      <img src="{{comment.actor.image.url}}" width="50" height="50"/>
+       <a href="{{comment.actor.url}}">{{ comment.actor.displayName }}</a>
+       {% if comment.published_today %}{{ comment.published_dt|date:"H:i" }}{% else %}
+       {{ comment.published_dt|date }}
+    {% endif %}
+    {{comment.object.content}}
+</li>
+  {% endfor %}
+</ul>
+{% endif %}
 {% endblock %}
+

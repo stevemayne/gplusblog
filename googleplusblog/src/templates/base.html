@@ -1,23 +1,70 @@
-<html>
-  <head>
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+  <title>Google+ - {% block title %}Blog{% endblock %}</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <link rel="stylesheet" href="/static/css/style.css" />
-  {% block stylesheets %}
-  {% endblock %}
-  <meta name="author" content="Steve Mayne" />
-  <meta name="description" content="Same Google+ Website" />
-  <script type="text/javascript" src="/static/js/cufon-yui.js"></script> 
-	<script type="text/javascript" src="/static/js/speccy_500.font.js"></script> 
-	<!-- <script type="text/javascript" src="/static/js/zx81_500.font.js"></script> --> 
-  <title>My Website - {% block title %}Blog{% endblock %}</title> 
+  <meta name="author" content="Seyhun Akyürek" />
+  <meta name="description" content="Google+ Blog" />
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- CSS
+  ================================================== -->
+  {% block stylesheets %}{% endblock %}
+  <link rel="stylesheet" href="/static/stylesheets/base.css" />
+  <link rel="stylesheet" href="/static/stylesheets/layout.css" />
+  <link rel="stylesheet" href="/static/stylesheets/skeleton.css" />
+
+  <!-- Favicons
+  ================================================== -->
+  <link rel="shortcut icon" href="/static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/static/images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/static/images/apple-touch-icon-114x114.png">
+
+  <!-- JS
+  ================================================== -->
+  <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+  <script type="text/javascript" src="/static/javascripts/tabs.js"></script>
+  <!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+   <script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'xxxxxxxxxxxxxxxxxxx'});</script>
+   <!-- add your sharethis.com publisher id -->
+
   </head>
   <body>
-  <div id="header"><h1><a href="/">My website</a></h1><h3>...which uses the Google+ API...</h3></div>
-  <ul class="breadcrumbs">
-  {% block breadcrumbs %}{% endblock %}
-  </ul>
-  <div id="content">
-  {% block body %}{% endblock %}
-  </div> 
-  </body>
+
+    <!-- The container is a centered 960px -->
+    <div class="container">
+
+      <!-- Give column value in word form (one, two..., twelve) -->
+      <div class="sixteen columns">
+        <h1><a href="/">Google+ Blog</a></h1>
+        {% block breadcrumbs %}{% endblock %}
+      </div>
+
+      <div class="sixteen columns">
+        <div class="row">
+          <div class="eleven columns alpha">
+              {% block body %}{% endblock %}
+            </div>
+           <div class="two columns omega">
+            <div id="google+">
+            <script type="text/javascript">mbgc='ffffff';ww='250';mbc='f7f7f7';bbc='3F79D5';bmobc='3b71c6';bbgc='4889F0';bmoc='3F79D5';bfc='FFFFFF';bmofc='ffffff';tlc='eeeee';tc='6a6a6a';nc='6a6a6a';bc='6a6a6a';l='y';fs='16';fsb='13';bw='100';ff='4';lu='6a6a6a';pc='4889F0';wh='340';b='s'; pid='xxxxxxxxxxxxxxxxxxx';</script><script type="text/javascript" src="http://widgetsplus.com/google_plus_widget.js"></script>
+   <!-- add your widgetsplus.com publisher id -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ </body>
 </html>
+

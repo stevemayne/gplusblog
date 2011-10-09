@@ -1,0 +1,50 @@
+This project allows you to use Google+ as the backend of a blog
+---------------------------------------------------------------
+
+This project requires:
+
+  * Google AppEngine SDK
+  
+    http://code.google.com/appengine/downloads.html
+  
+  * Google+ API
+  
+    http://code.google.com/p/google-api-python-client/
+    
+Installation
+------------
+
+Follow the installation instructions for the Google AppEngine SDK from here:
+
+    http://code.google.com/appengine/docs/python/gettingstarted/
+    
+To get running easily, copy the following directories from the Google+ API archive into your project (underneath the /src folder):
+
+apiclient/
+gplus/
+httplib2/
+oauth2client/
+uritemplate/
+gflags.py
+gflags_validators.py
+
+Copy settings.py.example as settings.py.  You can get the information required in that file as follows:  
+
+1. Go to:
+   https://code.google.com/apis/console
+2. select choose your project.
+3. Choose 'API Access'
+4. If you have not generated a client id, do so.
+5. Make your callback:
+  http://localhost:8080
+  
+You will need your own Google+ ID, which you can get from the URL of your Google+ profile.
+
+For example, within my Google plus URL:
+
+https://plus.google.com/107330528562005281406/posts
+
+My Google+ ID is: 
+
+107330528562005281406
+
